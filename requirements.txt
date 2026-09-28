@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fastapi>=0.116,<1
 uvicorn[standard]>=0.35,<1
 jinja2>=3.1,<4
@@ -19,3 +20,26 @@ pytest>=8.4,<9
 
 
 
+=======
+fastapi>=0.116,<1
+uvicorn[standard]>=0.35,<1
+jinja2>=3.1,<4
+python-multipart>=0.0.20,<1
+
+pydantic>=2.11,<3
+pydantic-settings>=2.10,<3
+python-dotenv>=1.1,<2
+
+google-genai>=1.38,<2
+
+huggingface-hub>=0.35,<1
+Pillow>=11.3,<12
+
+fpdf2>=2.8,<3
+httpx>=0.28,<1
+pytest>=8.4,<9
+
+
+
+
+>>>>>>> 4259a77dbb679077cc99e1d64f91f77e46761268

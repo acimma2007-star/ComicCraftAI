@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 
 <html lang="en">
@@ -150,4 +151,158 @@
 
 </body>
 
+=======
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Your Comic - ComicCraft
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<main class="container wide">
+
+    <section class="hero compact">
+
+        <p class="eyebrow">
+            YOUR COMIC
+        </p>
+
+        <h1>
+            Story Complete!
+        </h1>
+
+        <p class="lead">
+            Your five-panel comic has been generated.
+        </p>
+
+
+        <div class="actions">
+
+            <a
+                class="primary link-button"
+                href="{{ pdf_path }}"
+                download
+            >
+                Download Comic PDF
+            </a>
+
+
+            <a
+                class="secondary link-button"
+                href="/"
+            >
+                Create Another Comic
+            </a>
+
+        </div>
+
+    </section>
+
+
+    {% for panel in layout %}
+
+    <article class="card panel">
+
+        <div class="panel-heading">
+
+            <span>
+                Panel {{ panel.panel_number }}
+            </span>
+
+            <h2>
+                {{ panel.title }}
+            </h2>
+
+        </div>
+
+
+        <img
+            src="{{ panel.image_path }}"
+            alt="Comic panel {{ panel.panel_number }}"
+        >
+
+
+        <p class="scene">
+
+            <em>
+                {{ panel.scene_description }}
+            </em>
+
+        </p>
+
+
+        <p>
+
+            <strong>
+                Caption:
+            </strong>
+
+            {{ panel.caption }}
+
+        </p>
+
+
+        <p>
+            {{ panel.narration }}
+        </p>
+
+
+        {% if panel.dialogue %}
+
+        <div class="dialogue">
+
+            {% for line in panel.dialogue %}
+
+            <p>
+                💬 {{ line }}
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+
+        <details>
+
+            <summary>
+                Image Prompt
+            </summary>
+
+            <p>
+                {{ panel.image_prompt }}
+            </p>
+
+        </details>
+
+    </article>
+
+    {% endfor %}
+
+</main>
+
+</body>
+
+>>>>>>> 4259a77dbb679077cc99e1d64f91f77e46761268
 </html>
