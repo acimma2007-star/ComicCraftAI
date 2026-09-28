@@ -1,0 +1,38 @@
+import React, { useState } from 'react';
+import Header from './components/Header';
+import ComicForm from './components/ComicForm';
+import ComicViewer from './components/ComicViewer';
+import { generateComic } from './api';
+import './App.css';
+
+function App() {
+  const [comicData, setComicData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleGenerateComic = async (formData) => {
+    setIsLoading(true);
+    setError('');
+    try {
+      const data = await generateComic(formData);
+      setComicData(data);
+    } catch (err) {
+      setError(err.response?.data?.detail || 'Failed to generate comic story. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="container">
+      <Header/>
+      <main>
+        <ComicForm isLoading="{isLoading}" onSubmit="{handleGenerateComic}"/>
+        {error && <div className="error-message">{error}</div>}
+        <ComicViewer comicData="{comicData}"/>
+      </main>
+    </div>
+  );
+}
+
+export default App;
